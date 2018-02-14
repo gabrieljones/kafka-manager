@@ -1,6 +1,8 @@
 language: scala
 sudo: true
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
+  - openjdk8
 install: true
 script: travis_wait 30 ./sbt clean coverage assembly
 scala:
@@ -10,10 +12,10 @@ scala:
 
 cache:
   directories:
-  - $HOME/.sbt/0.13/dependency
-  - $HOME/.sbt/boot/scala*
-  - $HOME/.sbt/launchers
+#  - $HOME/.sbt/0.13/dependency
+#  - $HOME/.sbt/boot/scala*
+#  - $HOME/.sbt/launchers
   - $HOME/.ivy2/cache
-before_cache:
-  - find $HOME/.sbt -name "*.lock" -type f -delete
+#before_cache:
+#  - find $HOME/.sbt -name "*.lock" -type f -delete
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" -type f -delete
