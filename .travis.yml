@@ -4,7 +4,9 @@ jdk:
   - oraclejdk8
   - openjdk8
 install: true
-script: travis_wait 30 ./sbt clean coverage assembly
+script:
+  - rm -rf $HOME/.sbt
+  - travis_wait 30 ./sbt clean coverage assembly
 scala:
   - 2.11.7
 #after_success:
